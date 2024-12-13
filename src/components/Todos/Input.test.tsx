@@ -14,7 +14,7 @@ const renderWithMantine = (ui: JSX.Element) => {
 vi.mock('../../store/todos', () => {
 	const addTodoMock = vi.fn();
 	return {
-		useTodoStore: (selector: (state: any) => any) => {
+		useTodoStore: (selector: (state: unknown) => unknown) => {
 			const state = {
 				addTodo: addTodoMock,
 				createTodo: (text: string) => ({ id: Date.now(), text }),

@@ -1,50 +1,95 @@
-# React + TypeScript + Vite
+# Mindbox Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a React application using TypeScript and Vite for development. It includes a setup for ESLint, testing with Vitest, and uses various libraries such as Mantine for UI components.
 
-Currently, two official plugins are available:
+## Getting Started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Prerequisites
 
-## Expanding the ESLint configuration
+Ensure you have Node.js and npm installed on your machine. This project uses the following versions:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Node.js: >= 14.x
+- npm: >= 6.x
 
-- Configure the top-level `parserOptions` property like this:
+### Installation
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/Ser4eese/todos
+   cd todos
+   ```
+
+2. Install the dependencies:
+
+   ```bash
+   npm install
+   ```
+
+### Development
+
+To start the development server with Vite, run:
+
+```bash
+npm run dev
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+This will start the server with Hot Module Replacement (HMR) enabled.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### Building for Production
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+To build the application for production, use:
+
+```bash
+npm run build
 ```
+
+This will compile the TypeScript files and bundle the application using Vite.
+
+### Linting
+
+To run ESLint and check for code style issues, execute:
+
+```bash
+npm run lint
+```
+
+The ESLint configuration is set up to use type-aware lint rules for better code quality.
+
+### Testing
+
+The project uses Vitest for testing. To run the tests, use:
+
+```bash
+npm run test
+```
+
+The test environment is configured to use JSDOM, and setup files are located in `src/setupTests.js`.
+
+## Configuration
+
+### ESLint
+
+The ESLint configuration is expanded to include type-aware lint rules. It uses `tseslint.configs.recommendedTypeChecked` for stricter type checking and includes the `eslint-plugin-react` for React-specific linting.
+
+### TypeScript
+
+The `tsconfig.json` is configured with modern JavaScript features and strict type checking. It includes paths for `src` and `src/types`.
+
+### Vite
+
+The `vite.config.js` file includes plugins for React and SVGR. It is configured to use Vitest for testing with global variables and a JSDOM environment.
+
+## Dependencies
+
+The project uses several dependencies, including:
+
+- React and ReactDOM for building the UI
+- Mantine for UI components and hooks
+- Zustand for state management
+- Vite for development and build tooling
+- Vitest for testing
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for more details.
